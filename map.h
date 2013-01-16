@@ -4,17 +4,17 @@
 
 class map
 {
+//public:
   // number of tiles per side
-  const int sideSize;
+  int sideSize;
 
   struct tile
   {
     bool wall;
     bool exit;
-    int steps;
+    int step;
   };
 
-//  std::vector <int> v;
 
   std::vector< std::vector <tile> > plane;
 
@@ -24,4 +24,8 @@ class map
 
   // default constructor
   map();
+
+  // constructor passing size of plane
+  map(int sideSize);
+
 };
