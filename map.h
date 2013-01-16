@@ -14,6 +14,10 @@ class map
     int steps;
   };
 
+//  std::vector <int> v;
+
+  std::vector< std::vector <tile> > plane;
+
   //void setWall(int x, int y);
 
   //void setExit(int x, int y);
