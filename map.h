@@ -1,6 +1,8 @@
 /* comment */
 
 #include <vector>
+#include <iostream>
+#include <cstdlib>
 
 class map
 {
@@ -9,26 +11,29 @@ public:
   // number of tiles per side
   int sideSize;
 
-  struct tile
+  std::vector< std::vector <int> > plane;
+
+  struct position
   {
-    int wall;
-    int exit;
-    int step;
+    int x;
+    int y;
   };
 
-  std::vector< std::vector <tile> > plane;
+  bool isWall(int x, int y) const;
 
-  int isWall(int x, int y);
+  bool isExit(int x, int y) const;
 
-  int isExit(int x, int y);
+//  int countStep(int x, int y);
 
-  int countStep(int x, int y);
+  int readTile(int x, int y) const;
 
-  void ciao() const;
+  void setWall(int x, int y);
 
-  //void setWall(int x, int y);
+  void setExit(int x, int y);
 
-  //void setExit(int x, int y);
+  void upValue(int x, int y);
+
+  void print(int robot_x, int robot_y) const;
 
   // default constructor
   map();
