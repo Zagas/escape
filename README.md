@@ -27,7 +27,7 @@ RUNNING SIMULATION
 OUTPUT FILE
 ===========
 
-Every simulation is sved in a file.
+Every simulation is saved in a file.
 
 Output file contain a human-readable map of labyrinth with initial position of robot
 
@@ -45,4 +45,16 @@ Below the map, the complete sequence of robot movement espressed by numbers
 ROBOT INTELLINGENCE
 ===================
 
+Robot have no idea of labyrinth map, but knows only its position.
 
+Robot start with a map: this one is blank but of rigth size.
+
+Robot use the map to count how many times every tile was walked.
+
+Robot can decide the next movement using only its position and data contained into the map.
+
+A new inteligence can be defined inside robot class: to return the decision, the intelligence method must set two robot attributes:
+* try_x
+* try_y
+
+Robots equipped by good intelligence should escape in less steps than "stupid" robots.
