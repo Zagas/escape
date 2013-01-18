@@ -16,12 +16,12 @@ int main()
 //  maze.print();
 
   int sideSize;
-  cout << "enter size of maze sides: ";
+  cout << "enter size of labyrinth sides: ";
   cin >>  sideSize;
 
   int tiles;
   tiles = sideSize * sideSize;  
-  cout << "your maze will have " << tiles << " tiles" << endl;
+  cout << "your labyrinth will have " << tiles << " tiles" << endl;
 
   int suggested_walls;
   suggested_walls = tiles / 10 ;
