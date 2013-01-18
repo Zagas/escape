@@ -19,8 +19,8 @@ RUNNING SIMULATION
 * some pieces of wall could be placed: enter how many pieces of wall place into labyrinth
 * enter the maximum number of steps the robot will try
 * simulation can run in two modality: interactive and automatic
-** in interactive mode (useful for debugging) you have to press a key to simulate next robot step
-** in automatic mode robot try a step every second
+* in interactive mode (useful for debugging) you have to press a key to simulate next robot step
+* in automatic mode robot try a step every second
 * wait until robot escape or end all available steps
 
 
