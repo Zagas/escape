@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <fstream>
+#include <sstream>
 //#include <vector>
 #include "map.h"
 #include "robot.h"
@@ -12,15 +13,12 @@ using namespace std;
 
 int main()
 {
-//  map maze;
-//  maze.print();
-
   int sideSize;
   cout << "enter size of labyrinth sides: ";
   cin >>  sideSize;
 
   int tiles;
-  tiles = sideSize * sideSize;  
+  tiles = sideSize * sideSize;
   cout << "your labyrinth will have " << tiles << " tiles" << endl;
 
   int suggested_walls;
@@ -37,8 +35,8 @@ int main()
 
   bool interactive;
   interactive = false;
-  cout << "To you run in interactive mode type 1: ";
-  int int_tmp;
+  cout << "To run in interactive mode type 1: ";
+  int int_tmp; // used as buffer for int
   cin >> int_tmp;
   if (int_tmp == 1)
   {
@@ -49,10 +47,15 @@ int main()
   string filename;
   cout << "enter data file name: ";
   cin >>  filename;
+
+  int_tmp = time(0); // store current epochtime in int buffer
+  stringstream ss;
+  ss << int_tmp;
+  filename += "_"; 
+  filename += ss.str(); // append current epochtime to filename
+
   ofstream savefile;
   savefile.open (filename.c_str()); // insert check if file already exists
-//  savefile << "CIAO\n";
-
 
   map maze(sideSize);
 
@@ -110,7 +113,6 @@ int main()
     result = maze.readTile(rand_x, rand_y);
     if ( result == 0)
     {
-//      robotMap.setPosition(rand_x, rand_y);
       bruno.setPosition(rand_x, rand_y);
       robotMap.upValue(rand_x, rand_y);
     }
@@ -123,12 +125,16 @@ int main()
     cout << endl;
   }
   
-//  cout << "robot is in (" << bruno.get_x() << "," << bruno.get_y() << ")" << endl;
   cout << "robot is in (" << bruno.x_pos << "," << bruno.y_pos << ")" << endl;
 
   char tmp;
-  cout << "press anykey (but not ENTER) to continue..." << endl;
-  cin >> tmp;
+
+/* routine to wait until key pressure */
+  cout << "press anykey to continue..." << endl;
+  cin.ignore();
+  cin.get();
+/* end of routine */
+
   maze.print(bruno.x_pos, bruno.y_pos);
 
 /* routine to save map on file */
@@ -148,10 +154,10 @@ int main()
         savefile << "#";
       else
         savefile << " ";
-    }      
+    }
     savefile << "#";
     savefile << "\n";
-  }    
+  }
 
   for ( int i = 0; i < sideSize + 2; i++ ) {
     savefile << "#";
@@ -192,10 +198,8 @@ int main()
 
     savefile << movement << "\n";
 
-//    cout << "robot will try (" << bruno.try_y + 1 << "," << sideSize - bruno.try_x << ")" << endl;
-//    cout << "robot is in (" << bruno.y_pos + 1 << "," << sideSize - bruno.x_pos << ")" << endl;
     cout << "robot will try (" << bruno.try_x + 1 << "," << sideSize - bruno.try_y<< ")" << endl;
-    cout << "robot is in (" << bruno.x_pos + 1 << "," << sideSize - bruno.y_pos << ") - walked " 
+    cout << "robot is in (" << bruno.x_pos + 1 << "," << sideSize - bruno.y_pos << ") - walked "
       << robotMap.readTile(bruno.x_pos, bruno.y_pos) << " times" << endl;
     if ((bruno.try_x >= 0) && (bruno.try_x < sideSize) && (bruno.try_y >= 0) && (bruno.try_y < sideSize))
     {
@@ -219,8 +223,11 @@ int main()
       cout << "Still " << bruno.steps << " steps" << endl;
       if (interactive)
       {
-        cout << "press anykey (but not ENTER) to continue..." << endl;
-        cin >> tmp;
+/* routine to wait until key pressure */
+        cout << "press anykey to continue..." << endl;
+        cin.ignore();
+//        cin.get();
+/* end of routine */
       }
       else
       {
