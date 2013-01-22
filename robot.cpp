@@ -48,6 +48,8 @@ void robot::setPosition(int new_x, int new_y)
 }
 
 void robot::randomStrategy()
+/* movement randomly established */
+/* no intelligence */
 {
   int rand_x;
   int rand_y;
@@ -57,6 +59,30 @@ void robot::randomStrategy()
 
   try_x = x_pos + rand_x;
   try_y = y_pos + rand_y;
+}
+/*
+void robot::noOutStrategy()
+// movement randomly established
+// but avoiding movement outside map
+// very simple intelligence
+{
+  int rand_x;
+  int rand_y;
+
+  bool insideMap;
+  insideMap = false;
+
+  while(!insideMap)
+  {
+    rand_x = ((rand() + time(0)) % 3 ) - 1;
+    rand_y = ((rand() + time(0)) % 3 ) - 1;
+
+    try_x = x_pos + rand_x;
+    try_y = y_pos + rand_y;
+
+    if (robotMap.readTile(try_x, try_y) >= 0)
+      insideMap = true;
+  }
 }
 
 void robot::cleaner1Strategy()
@@ -70,3 +96,4 @@ void robot::cleaner1Strategy()
   try_x = x_pos + rand_x;
   try_y = y_pos + rand_y;
 }
+*/

@@ -21,6 +21,8 @@ public:
 
   void randomStrategy();
 
+  void noOutStrategy();
+
   void cleaner1Strategy();
 
 //  int get_x() const;
