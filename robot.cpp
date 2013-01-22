@@ -58,3 +58,15 @@ void robot::randomStrategy()
   try_x = x_pos + rand_x;
   try_y = y_pos + rand_y;
 }
+
+void robot::cleaner1Strategy()
+{
+  int rand_x;
+  int rand_y;
+
+  rand_x = ((rand() + time(0)) % 3 ) - 1;
+  rand_y = ((rand() + time(0)) % 3 ) - 1;
+
+  try_x = x_pos + rand_x;
+  try_y = y_pos + rand_y;
+}

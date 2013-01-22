@@ -1,4 +1,4 @@
-/* comment */
+/* robot class header file */
 
 #include <cstdlib>
 #include <ctime>
@@ -20,6 +20,8 @@ public:
   void setPosition(int new_x, int new_y);
 
   void randomStrategy();
+
+  void cleaner1Strategy();
 
 //  int get_x() const;
 //  int get_y() const;

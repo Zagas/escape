@@ -209,14 +209,14 @@ int main()
       movement = 3;
     else if ((x_mov == -1) && (y_mov == -1))
       movement = 4;
-    else if ((x_mov == 1) && (y_mov == 0))
+    else if ((x_mov == -1) && (y_mov == 0))
       movement = 5;
-    else if ((x_mov == -1) && (y_mov == -1))
+    else if ((x_mov == -1) && (y_mov == 1))
       movement = 6;
     else if ((x_mov == 0) && (y_mov == 1))
       movement = 7;
-    else if ((x_mov == 1) && (y_mov == -1))
-      movement = 9;
+    else if ((x_mov == 1) && (y_mov == 1))
+      movement = 8;
     else
       movement = 0;
 
@@ -232,9 +232,11 @@ int main()
 //    cout << "robot will try (" << bruno.try_x + 1 << "," << sideSize - bruno.try_y << ")" << endl;
 //    cout << "robot is in (" << bruno.x_pos + 1 << "," << sideSize - bruno.y_pos << ") - walked "
 //      << robotMap.readTile(bruno.x_pos, bruno.y_pos) << " times" << endl;
-    cout << "robot will try (" << bruno.try_x << "," << bruno.try_y << ")" << endl;
-    cout << "robot is in (" << bruno.x_pos << "," << bruno.y_pos << ") - walked "
-      << robotMap.readTile(bruno.x_pos, bruno.y_pos) << " times" << endl;
+//    cout << "robot will try (" << bruno.try_x << "," << bruno.try_y << ")" << endl;
+//    cout << "robot is in (" << bruno.x_pos << "," << bruno.y_pos << ") - walked "
+//      << robotMap.readTile(bruno.x_pos, bruno.y_pos) << " times" << endl;
+    cout << "robot is in    (" << bruno.x_pos << "," << bruno.y_pos << ") - walked " << robotMap.readTile(bruno.x_pos, bruno.y_pos) << " times" << endl;
+    cout << "robot will try (" << bruno.try_x << "," << bruno.try_y << ") - walked " << robotMap.readTile(bruno.try_x, bruno.try_y) << " times" << endl;
 
     if ((bruno.try_x >= 0) && (bruno.try_x < sideSize) && (bruno.try_y >= 0) && (bruno.try_y < sideSize))
     {

@@ -28,11 +28,17 @@ map::map(int side)
 }
 
 int map::readTile(int x, int y) const
+/* return value of tile as stored into the map */
+/* for tiles outside the map return -1 */
 {
-  int i = x;
-  int j = y;
   int result;
-  result = plane[i][j];
+  result = -1;
+  if ((x >= 0) && (x < sideSize) && (y >= 0) && (y < sideSize))
+  {
+    int i = x;
+    int j = y;
+    result = plane[i][j];
+  }
   return result;  
 }
 
