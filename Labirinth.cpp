@@ -27,6 +27,7 @@ Labirinth::Labirinth(int x, int y)
 }
 
 void Labirinth::setWall(int x, int y)
+// place a wall in labirinth by setting tile value to 1
 {
   int i = x;
   int j = y;
@@ -35,6 +36,7 @@ void Labirinth::setWall(int x, int y)
 }
 
 void Labirinth::setExit(int x, int y)
+// place the exit in labirinth by setting tile value to 2
 {
   int i = x;
   int j = y;
@@ -73,6 +75,11 @@ bool Labirinth::isExit(int x, int y) const
 }
 
 void Labirinth::print(int robot_x, int robot_y) const
+// print on screen the labirinth
+// # represent a wall
+// X represnt the exit point
+// # represent the robot
+// blank tiles are represtend by empty spaces
 {
   system("clear");
   for ( int i = 0; i < x_side + 2; i++ ) {

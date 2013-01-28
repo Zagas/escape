@@ -1,6 +1,7 @@
-/* coment */
+/* Robot class implementation file */
 
 Robot::Robot()
+// default constructor
 {
   x_pos = 0;
   y_pos = 0;
@@ -8,16 +9,14 @@ Robot::Robot()
   try_y = y_pos;
   steps = 100;
 
-//  int x_side;
-//  int y_side;
   x_side = 100;
   y_side = 100;
 
   Map robomap(x_side, y_side);  // create Labirinth object (named maze) for the labyrinth
-//  robomap = new Map(x_side, y_side);
 }
 
 Robot::Robot(int s, int x, int y)
+// constructor by passing robot step (s), x_side (x) and y_side (y) of map
 {
   x_pos = 0;
   y_pos = 0;
@@ -25,16 +24,14 @@ Robot::Robot(int s, int x, int y)
   try_y = y_pos;
   steps = s;
 
-//  int x_side;
-//  int y_side;
   x_side = x;
   y_side = y;
 
   Map robomap(x_side, y_side);  // create Labirinth object (named maze) for the labyrinth
-//  robomap = new Map(x_side, y_side);
 }
 
 void Robot::setPosition(int new_x, int new_y)
+// set new value for robot position
 {
   x_pos = new_x;
   y_pos = new_y;
@@ -42,6 +39,7 @@ void Robot::setPosition(int new_x, int new_y)
 
 
 int Robot::readTile(int x, int y) const
+// for given tile return value as stored in map
 {
   int result;
   result = robomap.readTile(x, y);
@@ -49,6 +47,7 @@ int Robot::readTile(int x, int y) const
 }
 
 void Robot::upValue(int x, int y)
+// increment value stored in gven tile
 {
   robomap.upValue(x, y);
 }
