@@ -1,5 +1,8 @@
 /* Labirinth class header file */
 
+#ifndef LABIRINTH_H
+#define LABIRINTH_H
+
 #include "Plane.h"
 
 class Labirinth: public Plane {
@@ -41,3 +44,5 @@ class Labirinth: public Plane {
   // place the exit
   void setExit(int x, int y);
  };
+
+#endif //LABIRINTH_H

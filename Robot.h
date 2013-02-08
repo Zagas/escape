@@ -1,5 +1,8 @@
 /* Robot class header file */
 
+#ifndef ROBOT_H
+#define ROBOT_H
+
 #include "Map.h"
 
 class Robot
@@ -41,3 +44,5 @@ private:
   int try_x; // x coordinate robot will go
   int try_y; // y coordinate robot will go
 };
+
+#endif //ROBOT_H
