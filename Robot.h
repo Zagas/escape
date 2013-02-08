@@ -21,6 +21,10 @@ public:
   // random movement
   void randomMovement();
 
+  // random movement
+  // never tries to move outside the labirinth
+  void noOutMovement();
+
   // define new position of robot
   void setPosition(int new_x, int new_y);
 
@@ -36,22 +40,4 @@ private:
   int steps; // number of remaining steps
   int try_x; // x coordinate robot will go
   int try_y; // y coordinate robot will go
-
-/*
-  // default constructor
-  Robot();
-
-  // constructor passing number of steps
-  Robot(int steps, int x_side, int y_side);
-
-  // to interface with Map object
-  void upValue(int x, int y);
-
-  // random movement
-  void randomStrategy();
-
-  // random movement
-  // never tries to move outside the labirinth
-  void noOutStrategy();
-*/
 };

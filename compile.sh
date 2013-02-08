@@ -1,4 +1,3 @@
-#g++ Plane.cpp Labirinth.cpp escape.cpp -o escape
 gcc -c Plane.cpp
 gcc -c Labirinth.cpp
 gcc -c Map.cpp

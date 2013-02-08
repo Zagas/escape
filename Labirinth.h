@@ -20,9 +20,6 @@ class Labirinth: public Plane {
   // print a human readable map of labirinth
   void print(int robot_x, int robot_y) const;
 
-  // default constructor
-//  Labirinth();
-
   // place the desired number of walls in labirinth
   void setWalls(int walls);
 

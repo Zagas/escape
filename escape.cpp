@@ -11,14 +11,8 @@
 #include <sstream>
 #include <fstream>
 #include <cstdlib>
-/*
-#include <vector> // for Plane class
-*/
 
-//#include "Plane.h" // declaration of Plane class
-//#include "Plane.cpp" // implementation of Plane class
 #include "Labirinth.h" // declaration of Labirinth class
-//#include "Map.h" // declaration of Map class
 #include "Robot.h" // declaration of Robot class
 
 using namespace std;
@@ -210,8 +204,8 @@ int main () {
 
   while (bruno.getSteps() > 0)
   {
-    bruno.randomMovement();  // define a new strategy in robot class and test if you're better :)
-//    bruno.noOutStrategy();  // define a new strategy in robot class and test if you're better :)
+//    bruno.randomMovement();  // define a new strategy in robot class and test if you're better :)
+    bruno.noOutMovement();  // define a new strategy in robot class and test if you're better :)
 
     maze.print(bruno.getX(), bruno.getY());
 

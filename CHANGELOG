@@ -1,0 +1,25 @@
+// ask for lenght of labyrinth sides
+  input validation: input (tmp_num) as float, output (x_side and y_side) converted to integer
+
+// ask for number of walls place in labyrinth
+  input validation: input (tmp_num) as float, output (wall_pieces) converted to integer
+
+// ask for steps available for robot
+  input validation: input (tmp_num) as float, output (robot_steps) converted to integer
+
+// ask for simulation modality
+  input validation: input (tmp_num) as float, output (delay) converted to integer
+
+new method setWalls() in Labirinth
+new method setExits() in Labirinth
+new method isEmpty() in Labirinth
+
+new method getXside() in Plane
+new method getYside() in Plane
+
+changed Robot constructor
+
+new method getX() in Robot
+new method getY() in Robot
+new method stopSignal() in Robot
+

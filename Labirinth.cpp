@@ -5,21 +5,6 @@
 
 #include "Labirinth.h"  // header file
 
-/*
-Labirinth::Labirinth()
-// default constructor
-{
-  x_side = 10;
-  y_side = 10;
-
-  for ( int i = 0; i < x_side; i++ ) {
-    plane.push_back ( std::vector<int>() );
-    for ( int j = 0; j < y_side; j++ )
-      plane[i].push_back ( 0 );
-  }
-}
-*/
-
 Labirinth::Labirinth(int x, int y)
 // constructor passing sides of labirinth
 {

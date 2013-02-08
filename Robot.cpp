@@ -5,23 +5,6 @@
 #include "Robot.h"  // header file
 #include "Map.h"
 
-/*
-Robot::Robot()
-// default constructor
-{
-  x_pos = 0;
-  y_pos = 0;
-  try_x = x_pos;
-  try_y = y_pos;
-  steps = 100;
-
-  x_side = 100;
-  y_side = 100;
-
-  Map robomap(x_side, y_side);  // create Labirinth object (named maze) for the labyrinth
-}
-*/
-
 Robot::Robot(int s, int x, int y, int x_s, int y_s)
 // constructor by passing robot step (s), x_side (x) and y_side (y) of map
 {
@@ -30,8 +13,6 @@ Robot::Robot(int s, int x, int y, int x_s, int y_s)
   try_x = x_pos;
   try_y = y_pos;
   steps = s;
-//  robomap = createMap(x_s, y_s);
-//  Map robomap = new Map(x_s, y_s);
   Map robomap(x_s, y_s);  // create Labirinth object (named maze) for the labyrinth
   robomap.upValue(x_pos, y_pos);
 }
@@ -104,16 +85,8 @@ int Robot::readTile(int x, int y) const
   return result;
 }
 
-/*
-void Robot::upValue(int x, int y)
-// increment value stored in gven tile
-{
-  robomap.upValue(x, y);
-}
 
-
-
-void Robot::noOutStrategy()
+void Robot::noOutMovement()
 // movement randomly established
 // but avoiding movements outside labirinth
 // no intelligence
@@ -132,10 +105,11 @@ void Robot::noOutStrategy()
     try_x = x_pos + rand_x;
     try_y = y_pos + rand_y;
 
-    if ((try_x >= 0) && (try_x < x_side) && (try_y >= 0) && (try_y < y_side))
+    if ((try_x >= 0) && (try_x < robomap.getXside()) && (try_y >= 0) && (try_y < robomap.getYside()))
     {
       check = true;
     }
   }
+
+  --steps;
 }
-*/
