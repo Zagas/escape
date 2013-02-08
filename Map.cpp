@@ -1,11 +1,13 @@
 /* Map class implementation file */
 
+#include "Map.h"  // header file
+
+
 Map::Map()
 // default constructor
 {
   x_side = 100;
   y_side = 100;
-
   for ( int i = 0; i < x_side; i++ ) {
     plane.push_back ( std::vector<int>() );
     for ( int j = 0; j < y_side; j++ )

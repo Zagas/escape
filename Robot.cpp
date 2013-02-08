@@ -1,5 +1,11 @@
 /* Robot class implementation file */
 
+#include <cstdlib>
+
+#include "Robot.h"  // header file
+#include "Map.h"
+
+/*
 Robot::Robot()
 // default constructor
 {
@@ -14,47 +20,55 @@ Robot::Robot()
 
   Map robomap(x_side, y_side);  // create Labirinth object (named maze) for the labyrinth
 }
+*/
 
-Robot::Robot(int s, int x, int y)
+Robot::Robot(int s, int x, int y, int x_s, int y_s)
 // constructor by passing robot step (s), x_side (x) and y_side (y) of map
 {
-  x_pos = 0;
-  y_pos = 0;
+  x_pos = x;
+  y_pos = y;
   try_x = x_pos;
   try_y = y_pos;
   steps = s;
-
-  x_side = x;
-  y_side = y;
-
-  Map robomap(x_side, y_side);  // create Labirinth object (named maze) for the labyrinth
+//  robomap = createMap(x_s, y_s);
+//  Map robomap = new Map(x_s, y_s);
+  Map robomap(x_s, y_s);  // create Labirinth object (named maze) for the labyrinth
+  robomap.upValue(x_pos, y_pos);
 }
 
-void Robot::setPosition(int new_x, int new_y)
-// set new value for robot position
+int Robot::getX() const
+// return x coordinate of robot
 {
-  x_pos = new_x;
-  y_pos = new_y;
+  return x_pos;
 }
 
-
-int Robot::readTile(int x, int y) const
-// for given tile return value as stored in map
+int Robot::getY() const
+// return y coordinate of robot
 {
-  int result;
-  result = robomap.readTile(x, y);
-  return result;
+  return y_pos;
 }
 
-void Robot::upValue(int x, int y)
-// increment value stored in gven tile
+int Robot::getTryX() const
+// return x coordinate of robot
 {
-  robomap.upValue(x, y);
+  return try_x;
 }
 
-void Robot::randomStrategy()
-/* movement randomly established */
-/* no intelligence */
+int Robot::getTryY() const
+// return y coordinate of robot
+{
+  return try_y;
+}
+
+int Robot::getSteps() const
+// return remaining steps of robot
+{
+  return steps;
+}
+
+void Robot::randomMovement()
+// movement randomly established
+// no intelligence
 {
   int rand_x;
   int rand_y;
@@ -64,12 +78,45 @@ void Robot::randomStrategy()
 
   try_x = x_pos + rand_x;
   try_y = y_pos + rand_y;
+
+  --steps;
 }
 
+void Robot::setPosition(int new_x, int new_y)
+// set new value for robot position
+{
+  x_pos = new_x;
+  y_pos = new_y;
+  robomap.upValue(x_pos, y_pos);
+}
+
+void Robot::stopSignal()
+// set steps to zero
+{
+  steps = 0;
+}
+
+int Robot::readTile(int x, int y) const
+// for given tile return value as stored in map
+{
+  int result;
+  result = robomap.readTile(x, y);
+  return result;
+}
+
+/*
+void Robot::upValue(int x, int y)
+// increment value stored in gven tile
+{
+  robomap.upValue(x, y);
+}
+
+
+
 void Robot::noOutStrategy()
-/* movement randomly established */
-/* but avoiding movements outside labirinth */
-/* no intelligence */
+// movement randomly established
+// but avoiding movements outside labirinth
+// no intelligence
 {
   int rand_x;
   int rand_y;
@@ -91,3 +138,4 @@ void Robot::noOutStrategy()
     }
   }
 }
+*/

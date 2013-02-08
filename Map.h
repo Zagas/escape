@@ -1,5 +1,11 @@
 /* Map class header file */
 
+#ifndef MAP_H
+#define MAP_H
+
+#include "Plane.h"
+#include <iostream>
+
 class Map: public Plane {
 /* Map::Plane class define a 2-dimensional map where take notice of a number for every tile */
   public:
@@ -15,4 +21,4 @@ class Map: public Plane {
 
 };
 
-#include "Map.cpp" // implementation of Map class
+#endif //MAP_H
